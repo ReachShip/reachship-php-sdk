@@ -1,0 +1,27 @@
+{
+    "name": "reachship/reachship-php-sdk",
+    "description": "PHP library for the ReachShip API.",
+    "keywords": [
+        "reachship",
+        "shipping"
+    ],
+    "type": "library",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "ReachShip Development Team"
+        }
+    ],
+    "autoload": {
+        "classmap": ["ReachshipRequestBuilder/ReachshipRequestBuilder.php", "ReachshipAPIClient/ReachshipAPIClient.php"]
+    },
+    "scripts": {
+        "refresh-vendor": "composer dump-autoload",
+        "phpcs": "./vendor/bin/phpcs --ignore=/vendor/* --standard=PSR12 ./",
+        "phpcbf": "./vendor/bin/phpcbf --ignore=/vendor/* --standard=PSR12 ./"
+    },
+    "minimum-stability": "dev",
+    "require-dev": {
+        "squizlabs/php_codesniffer": "4.0.x-dev"
+    }
+}
