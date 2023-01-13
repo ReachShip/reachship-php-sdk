@@ -36,6 +36,11 @@ $request->shipment()->shipTo()->setBusinessName("Algo Tech");
 $request->shipment()->shipTo()->setAddressType("STANDARD_ADDRESS");
 $request->shipment()->shipTo()->setDeliveryInstructions("Handle with care");
 
+// Shipment Options.
+$request->shipment()->shipmentOptions()->auspostMypost()->setShipmentReference("Shipment 1");
+$request->shipment()->shipmentOptions()->auspostMypost()->setEmailTrackingEnabled(true);
+$request->shipment()->shipmentOptions()->auspostMypost()->setSenderReferences(array("sender ref 1", "sender ref 2"));
+
 // // Items.
 $request->shipment()->item()->setLength(1);
 $request->shipment()->item()->setWidth(2);

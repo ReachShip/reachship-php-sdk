@@ -142,7 +142,7 @@ class RatesRequest
         return $obj;
     }
 
-    
+
     /**
      * Function mapDeepAndStripEmptyValues.
      *

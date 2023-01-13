@@ -70,7 +70,21 @@ class Shipment
         return $this->shipToObject;
     }
 
-        /**
+    /**
+     * Function shipmentOptions.
+     *
+     * @return object
+     */
+    public function shipmentOptions()
+    {
+        if (empty($this->shipmentOptionsObject)) {
+            require_once dirname(__FILE__) . '/ShipmentOptions.php';
+            $this->shipmentOptionsObject = new ShipmentOptions();
+        }
+        return $this->shipmentOptionsObject;
+    }
+
+    /**
      * Function items items.
      *
      * @return object
@@ -109,6 +123,7 @@ class Shipment
             'ship_from' => $this->shipFrom()->getObject(),
             'ship_to'   => $this->shipTo()->getObject(),
             'packages'  => $this->items()->getItems(),
+            'shipment_options' => $this->shipmentOptions()->getObject()
         );
 
         return $obj;
