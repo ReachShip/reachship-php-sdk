@@ -21,7 +21,7 @@ class ReachshipAPIClient
      *
      * @var string
      */
-    private static $appUrl = 'http://localhost:8000/';
+    private static $appUrl = 'https://api.reachship.com/';
 
     /**
      * Function httpPostRequest
@@ -653,6 +653,44 @@ class ReachshipAPIClient
         try {
             $response = self::httpPostRequest(
                 self::$appUrl . self::getAPIMode($apiMode) . '/v1/schedule-pickup',
+                self::getApiHeaders($token),
+                self::JSONEncode($body)
+            );
+
+            $decodedResponse = json_decode($response['body']);
+
+            if (200 === $response['status_code']) {
+                return array(
+                    'status'  => 'success',
+                    'message' => $decodedResponse,
+                );
+            }
+
+            return array(
+                'status'  => 'error',
+                'message' => $decodedResponse->message,
+            );
+        } catch (Exception $e) {
+            return array(
+                'status'  => 'error',
+                'message' => 'Server Error!',
+            );
+        }
+    }
+
+    /**
+     * Function recoverShipmentURL
+     *
+     * @param  string $token Token.
+     * @param  array  $body Request Body.
+     * @param  string $apiMode Mode.
+     * @return array
+     */
+    public static function recoverShipmentURL($token, $body, $apiMode = 'sandbox')
+    {
+        try {
+            $response = self::httpPostRequest(
+                self::$appUrl . self::getAPIMode($apiMode) . '/v1/recover-shipment-url',
                 self::getApiHeaders($token),
                 self::JSONEncode($body)
             );

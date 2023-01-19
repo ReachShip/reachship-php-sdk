@@ -12,6 +12,7 @@ use Reachship\CreateShipment;
 use Reachship\TrackShipment;
 use Reachship\SchedulePickup;
 use Reachship\DeleteShipments;
+use Reachship\RecoverShipmentURL;
 
 /**
  * ReachshipRequestBuilder class.
@@ -59,6 +60,13 @@ class ReachshipRequestBuilder
      * @var mixed
      */
     private $auspostMypostObject;
+
+    /**
+     * Variable recoverShipmentURLObject
+     *
+     * @var mixed
+     */
+    private $recoverShipmentURLObject;
 
     /**
      * Function rates
@@ -142,5 +150,19 @@ class ReachshipRequestBuilder
             $this->auspostMypostObject = new AuspostMypost();
         }
         return $this->auspostMypostObject;
+    }
+
+    /**
+     * Function recoverShipmentUrl
+     *
+     * @return object
+     */
+    public function recoverShipmentUrl()
+    {
+        if (empty($this->recoverShipmentURLObject)) {
+            require_once dirname(__FILE__) . '/RecoverShipmentURL/RecoverShipmentURLRequest.php';
+            $this->recoverShipmentURLObject = new RecoverShipmentURLRequest();
+        }
+        return $this->recoverShipmentURLObject;
     }
 }
