@@ -51,6 +51,20 @@ class Shipment
     private $shipDate;
 
     /**
+     * Function clear Set Keys as NULL.
+     *
+     * @return object
+     */
+    public function clear()
+    {
+        $this->shipFromObject = null;
+        $this->shipToObject = null;
+        $this->itemsObject = null;
+        $this->itemObject = null;
+        $this->shipDate = null;
+    }
+
+    /**
      * Function shipFrom shipFrom.
      *
      * @return object

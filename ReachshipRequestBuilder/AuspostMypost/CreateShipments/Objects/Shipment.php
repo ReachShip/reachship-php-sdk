@@ -113,6 +113,19 @@ class Shipment
     }
 
     /**
+     * Function clear Set Keys as NULL.
+     *
+     * @return object
+     */
+    public function clear()
+    {
+        $this->shipFromObject = null;
+        $this->shipToObject = null;
+        $this->itemsObject = null;
+        $this->itemObject = null;
+    }
+
+    /**
      * Function getObject
      *
      * @return object

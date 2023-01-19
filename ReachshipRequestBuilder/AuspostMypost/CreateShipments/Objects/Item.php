@@ -59,6 +59,20 @@ class Item
     private $dimensionUnit;
 
     /**
+     * Variable description
+     *
+     * @var mixed
+     */
+    private $description;
+
+    /**
+     * Variable itemOptionsObject
+     *
+     * @var mixed
+     */
+    private $itemOptionsObject;
+
+    /**
      * Function getObject Get Object.
      *
      * @return object
@@ -82,9 +96,28 @@ class Item
                 'value' => $this->getWeight(),
                 'unit'  => !empty($this->getWeight()) ? $this->getWeightUnit() : "",
             ),
+            'description' => $this->getDescription(),
+            'item_options' => $this->itemOptions()->getObject()
         );
 
         return $obj;
+    }
+
+    /**
+     * Function clear Set Keys as NULL.
+     *
+     * @return object
+     */
+    public function clear()
+    {
+        $this->setLength(null);
+        $this->setWidth(null);
+        $this->setHeight(null);
+        $this->setWeight(null);
+        $this->setWeightUnit(null);
+        $this->setDimensionUnit(null);
+        $this->setDescription(null);
+        $this->itemOptionsObject = null;
     }
 
     /**
@@ -211,5 +244,40 @@ class Item
     public function getWeightUnit()
     {
         return $this->weightUnit;
+    }
+
+    /**
+     * Function setDescription
+     *
+     * @param  mixed $description Description.
+     * @return void
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * Function getDescription
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Function itemOptions
+     *
+     * @return void
+     */
+    public function itemOptions()
+    {
+        if (empty($this->itemOptionsObject)) {
+            require_once dirname(__FILE__) . '/ItemOptions.php';
+            $this->itemOptionsObject = new ItemOptions();
+        }
+        return $this->itemOptionsObject;
     }
 }
