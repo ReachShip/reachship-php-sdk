@@ -36,6 +36,11 @@ $request->shipment()->shipTo()->setBusinessName("Algo Tech");
 $request->shipment()->shipTo()->setAddressType("STANDARD_ADDRESS");
 $request->shipment()->shipTo()->setDeliveryInstructions("Handle with care");
 
+// Shipment Options.
+$request->shipment()->shipmentOptions()->auspostMypost()->setShipmentReference("Shipment 1");
+$request->shipment()->shipmentOptions()->auspostMypost()->setEmailTrackingEnabled(true);
+$request->shipment()->shipmentOptions()->auspostMypost()->setSenderReferences(array("sender ref 1", "sender ref 2"));
+
 // // Items.
 $request->shipment()->item()->setLength(1);
 $request->shipment()->item()->setWidth(2);
@@ -43,11 +48,47 @@ $request->shipment()->item()->setHeight(3);
 $request->shipment()->item()->setDimensionUnit('IN');
 $request->shipment()->item()->setWeight(4);
 $request->shipment()->item()->setWeightUnit('LB');
+
+// Item Options.
+$request->shipment()->item()->itemOptions()->auspostMypost()->setContainsDangerousGoods(true);
+$request->shipment()->item()->itemOptions()->auspostMypost()->setImportReferenceNumber("abcxyz");
+$request->shipment()->item()->itemOptions()->auspostMypost()->setProductId("B20");
+$request->shipment()->item()->itemOptions()->auspostMypost()->setSignatureOnDelivery(true);
+$request->shipment()->item()->itemOptions()->auspostMypost()->setCommercialValue(true);
+$request->shipment()->item()->itemOptions()->auspostMypost()->setClassificationType("SALE_OF_GOODS");
+$request->shipment()->item()->itemOptions()->auspostMypost()->setDescriptionOfOther("desc");
+
+// Item Contents.
+$itemContentObject = $request->shipment()->item()->itemOptions()->auspostMypost()->itemContent();
+
+// Add Item Content 1.
+$itemContentObject->setTariffCode("123456");
+$itemContentObject->setExportDeclarationNumber("123456789");
+$itemContentObject->setCountryOfOrigin("AU");
+$itemContentObject->setCoverAmount(12);
+$itemContentObject->setWeight(12);
+$itemContentObject->setDescription("Item Content 1");
+$itemContent1 = $itemContentObject->getObject();
+$request->shipment()->item()->itemOptions()->auspostMypost()->addItemContent($itemContent1);
+
+// Clear object.
+$itemContentObject->clear();
+
+// Add Item Content 2.
+$itemContentObject->setTariffCode("123456");
+$itemContentObject->setExportDeclarationNumber("123456789");
+$itemContentObject->setDescription("Item Content 2");
+$itemContent2 = $itemContentObject->getObject();
+$request->shipment()->item()->itemOptions()->auspostMypost()->addItemContent($itemContent2);
+
+// Clear object.
+$itemContentObject->clear();
+
+// Add Item.
 $request->shipment()->items()->addItem($request->shipment()->item()->getObject());
 
-$shipment_1 = $request->shipment()->getObject();
-
-$request->addShipment($shipment_1);
+$shipment1 = $request->shipment()->getObject();
+$request->addShipment($shipment1);
 
 // Get JSON.
 $requestBody = $request->getRequestJSON();

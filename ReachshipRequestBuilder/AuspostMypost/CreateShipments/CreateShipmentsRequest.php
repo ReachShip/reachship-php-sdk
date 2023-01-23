@@ -89,9 +89,9 @@ class CreateShipmentsRequest
      *
      * @return object
      */
-    public function addShipment( $shipment )
+    public function addShipment($shipment)
     {
-        array_push( $this->shipments, $shipment );
+        array_push($this->shipments, $shipment);
     }
 
     /**

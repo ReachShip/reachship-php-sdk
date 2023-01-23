@@ -20,7 +20,7 @@
         "phpcs": "./vendor/bin/phpcs --ignore=/vendor/* --standard=PSR12 ./",
         "phpcbf": "./vendor/bin/phpcbf --ignore=/vendor/* --standard=PSR12 ./"
     },
-    "minimum-stability": "dev",
+    "minimum-stability":"alpha",
     "require-dev": {
         "squizlabs/php_codesniffer": "4.0.x-dev"
     }

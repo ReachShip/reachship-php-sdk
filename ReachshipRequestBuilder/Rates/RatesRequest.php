@@ -122,6 +122,20 @@ class RatesRequest
     }
 
     /**
+     * Function clear Set Keys as NULL.
+     *
+     * @return object
+     */
+    public function clear()
+    {
+        $this->shipFromObject = null;
+        $this->shipToObject = null;
+        $this->itemsObject = null;
+        $this->itemObject = null;
+        $this->ratesOptionsObject = null;
+    }
+
+    /**
      * Function getRequest
      *
      * @return object
@@ -142,7 +156,7 @@ class RatesRequest
         return $obj;
     }
 
-    
+
     /**
      * Function mapDeepAndStripEmptyValues.
      *

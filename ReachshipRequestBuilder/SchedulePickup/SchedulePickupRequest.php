@@ -50,6 +50,13 @@ class SchedulePickupRequest
     private $pickupWindowObject;
 
     /**
+     * Variable trackingIds
+     *
+     * @var mixed
+     */
+    private $trackingIds;
+
+    /**
      * Function carrier Carrier.
      *
      * @return object
@@ -138,6 +145,21 @@ class SchedulePickupRequest
     public function setTrackingIds($trackingIds)
     {
         $this->trackingIds = $trackingIds;
+    }
+
+    /**
+     * Function clear Set Keys as NULL.
+     *
+     * @return object
+     */
+    public function clear()
+    {
+        $this->carrierObject = null;
+        $this->shipperObject = null;
+        $this->itemsObject = null;
+        $this->itemObject = null;
+        $this->pickupWindowObject = null;
+        $this->trackingIds = null;
     }
 
     /**

@@ -32,6 +32,16 @@ class Items
     }
 
     /**
+     * Function clear Set Keys as NULL.
+     *
+     * @return object
+     */
+    public function clear()
+    {
+        $this->items = array();
+    }
+
+    /**
      * Function addItem
      *
      * @param  mixed $item Item.
