@@ -134,8 +134,8 @@ class From
     public function setPhone($rawPhone, $dialCode = null)
     {
         $this->phone = array(
-            'dialCode' => $dialCode,
-            'rawPhone' => $rawPhone,
+            'dial_code' => $dialCode,
+            'raw_phone' => $rawPhone,
         );
     }
 

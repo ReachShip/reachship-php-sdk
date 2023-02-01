@@ -503,7 +503,7 @@ class ReachshipAPIClient
             $response = self::httpPostRequest(
                 self::$appUrl . self::getAPIMode($apiMode) . '/v1/print-label',
                 self::getApiHeaders($token),
-                self::JSONEncode($body)
+                $body
             );
 
             $decodedResponse = json_decode($response['body']);
@@ -541,7 +541,7 @@ class ReachshipAPIClient
             $response = self::httpPostRequest(
                 self::$appUrl . self::getAPIMode($apiMode) . '/v1/delete-shipments',
                 self::getApiHeaders($token),
-                self::JSONEncode($body)
+                $body
             );
 
             $decodedResponse = json_decode($response['body']);
@@ -579,7 +579,7 @@ class ReachshipAPIClient
             $response = self::httpPostRequest(
                 self::$appUrl . self::getAPIMode($apiMode) . '/v1/track-shipment',
                 self::getApiHeaders($token),
-                self::JSONEncode($body)
+                $body
             );
 
             $decodedResponse = json_decode($response['body']);

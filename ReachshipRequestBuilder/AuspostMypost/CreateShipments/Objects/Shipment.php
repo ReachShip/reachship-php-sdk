@@ -135,7 +135,7 @@ class Shipment
         $obj = array(
             'ship_from' => $this->shipFrom()->getObject(),
             'ship_to'   => $this->shipTo()->getObject(),
-            'packages'  => $this->items()->getItems(),
+            'items'  => $this->items()->getItems(),
             'shipment_options' => $this->shipmentOptions()->getObject()
         );
 
