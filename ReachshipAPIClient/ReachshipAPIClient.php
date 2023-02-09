@@ -373,61 +373,20 @@ class ReachshipAPIClient
     }
 
     /**
-     * Function deleteCredentials
+     * Function deleteCarrierCredentials
      *
      * @param  string $token Token.
-     * @param  string $carrier Carrier.
-     * @param  string $accountName Account Name.
+     * @param  string $body Request Body.
      * @param  string $apiMode Mode.
      * @return array
      */
-    public static function deleteCredentials($token, $carrier, $accountName, $apiMode = 'sandbox')
+    public static function deleteCarrierCredentials($token, $body, $apiMode = 'sandbox')
     {
         try {
-            $data = array();
-
-            switch ($carrier) {
-                case 'DHL':
-                    $data = array(
-                        'carrier'      => $carrier,
-                        'account_name' => $accountName,
-                    );
-                    break;
-                case 'FEDEX':
-                    $data = array(
-                        'carrier'      => $carrier,
-                        'account_name' => $accountName,
-                    );
-                    break;
-                case 'UPS':
-                    $data = array(
-                        'carrier'      => $carrier,
-                        'account_name' => $accountName,
-                    );
-                    break;
-                case 'STAMPS_USPS':
-                    $data = array(
-                        'carrier'      => $carrier,
-                        'account_name' => $accountName,
-                    );
-                    break;
-                case 'AUSPOST_MYPOST':
-                    $data = array(
-                        'carrier'      => $carrier,
-                        'account_name' => $accountName,
-                    );
-                    break;
-                default:
-                    return array(
-                        'status'  => 'error',
-                        'message' => 'Invalid Data!',
-                    );
-            }
-
             $response = self::httpPostRequest(
                 self::$appUrl . self::getAPIMode($apiMode) . '/v1/delete-carrier-credentials',
                 self::getApiHeaders($token),
-                self::JSONEncode($data)
+                $body
             );
 
             $decodedResponse = json_decode($response['body']);
@@ -644,7 +603,7 @@ class ReachshipAPIClient
      * Function schedulePickup
      *
      * @param  string $token Token.
-     * @param  array  $body Body.
+     * @param  string  $body Body JSON.
      * @param  string $apiMode Mode.
      * @return array
      */
@@ -654,7 +613,7 @@ class ReachshipAPIClient
             $response = self::httpPostRequest(
                 self::$appUrl . self::getAPIMode($apiMode) . '/v1/schedule-pickup',
                 self::getApiHeaders($token),
-                self::JSONEncode($body)
+                $body
             );
 
             $decodedResponse = json_decode($response['body']);
@@ -682,7 +641,7 @@ class ReachshipAPIClient
      * Function recoverShipmentURL
      *
      * @param  string $token Token.
-     * @param  array  $body Request Body.
+     * @param  string  $body Request Body JSON.
      * @param  string $apiMode Mode.
      * @return array
      */
@@ -692,7 +651,7 @@ class ReachshipAPIClient
             $response = self::httpPostRequest(
                 self::$appUrl . self::getAPIMode($apiMode) . '/v1/recover-shipment-url',
                 self::getApiHeaders($token),
-                self::JSONEncode($body)
+                $body
             );
 
             $decodedResponse = json_decode($response['body']);

@@ -13,6 +13,7 @@ use Reachship\TrackShipment;
 use Reachship\SchedulePickup;
 use Reachship\DeleteShipments;
 use Reachship\RecoverShipmentURL;
+use Reachship\DeleteCarrierCredentials;
 
 /**
  * ReachshipRequestBuilder class.
@@ -67,6 +68,13 @@ class ReachshipRequestBuilder
      * @var mixed
      */
     private $recoverShipmentURLObject;
+
+    /**
+     * Variable deleteCarrierCredentialsObject
+     *
+     * @var mixed
+     */
+    private $deleteCarrierCredentialsObject;
 
     /**
      * Function rates
@@ -164,5 +172,19 @@ class ReachshipRequestBuilder
             $this->recoverShipmentURLObject = new RecoverShipmentURLRequest();
         }
         return $this->recoverShipmentURLObject;
+    }
+
+    /**
+     * Function deleteCarrierCredentials
+     *
+     * @return object
+     */
+    public function deleteCarrierCredentials()
+    {
+        if (empty($this->deleteCarrierCredentialsObject)) {
+            require_once dirname(__FILE__) . '/DeleteCarrierCredentials/DeleteCarrierCredentialsRequest.php';
+            $this->deleteCarrierCredentialsObject = new DeleteCarrierCredentialsRequest();
+        }
+        return $this->deleteCarrierCredentialsObject;
     }
 }

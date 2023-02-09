@@ -96,15 +96,15 @@ $requestBody = $request->getRequestJSON();
 error_log(print_r($requestBody, true));
 
 // Get Token.
-// $tokenResponse = ReachshipAPIClient::getToken("client_id", "client_secret", "sandbox");
+$tokenResponse = ReachshipAPIClient::getToken("client_id", "client_secret", "sandbox");
 
-// // Token.
-// $token = $tokenResponse['token'];
+// Token.
+$token = $tokenResponse['token'];
 
-// // Create Shipment (Mypost).
-// $ratesResponse = ReachshipAPIClient::generateShipment($token, $requestBody, 'sandbox');
+// Create Shipment (Mypost).
+$ratesResponse = ReachshipAPIClient::generateShipment($token, $requestBody, 'sandbox');
 
-// // Response as PHP Array.
-// $responseBody = $ratesResponse['message'];
+// Response as PHP Array.
+$responseBody = $ratesResponse['message'];
 
-// error_log(print_r($responseBody, true));
+error_log(print_r($responseBody, true));

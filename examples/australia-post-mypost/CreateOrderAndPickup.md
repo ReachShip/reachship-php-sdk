@@ -1,6 +1,7 @@
 # Create Order (Mypost) Full Schema
+
 ```php
-<?php 
+<?php
 require_once dirname(__FILE__) . '/vendor/autoload.php';
 
 // Create Request Builder Instance.
@@ -30,10 +31,10 @@ $tokenResponse = ReachshipAPIClient::getToken("reachship_client_id", "reachship_
 $token = $tokenResponse['token'];
 
 // Create Order (Mypost).
-$ratesResponse = ReachshipAPIClient::generateShipment($token, $requestBody, 'sandbox');
+$createOrderAndPickupResponse = ReachshipAPIClient::generateShipment($token, $requestBody, 'sandbox');
 
 // Response as PHP Array.
-$responseBody = $ratesResponse['message'];
+$responseBody = $createOrderAndPickupResponse['message'];
 
 error_log(print_r($responseBody, true));
 

@@ -1,4 +1,4 @@
-# Delete Shipments (Mypost) Full Schema
+# Delete Carrier Credentials Full Schema
 
 ```php
 <?php
@@ -6,10 +6,11 @@ require_once dirname(__FILE__) . '/vendor/autoload.php';
 
 // Create Request Builder Instance.
 $builder = new ReachshipRequestBuilder();
-$request = $builder->auspostMypost()->deleteShipments();
+$request = $builder->deleteCarrierCredentials();
 
-$request->setCarrierName("AUSPOST_MYPOST");
-$request->setShipmentIds(["shipment_id_1"]);
+// Request.
+$request->setCarrierName('DHL');
+$request->setAccountName('Account 1');
 
 // Get JSON.
 $requestBody = $request->getRequestJSON();
@@ -20,12 +21,11 @@ $tokenResponse = ReachshipAPIClient::getToken("reachship_client_id", "reachship_
 // Token.
 $token = $tokenResponse['token'];
 
-// Delete Shipments (Mypost).
-$deleteShipmentsResponse = ReachshipAPIClient::deleteShipments($token, $requestBody, 'sandbox');
+// Delete Credentials.
+$deleteCredentialsResponse = ReachshipAPIClient::deleteShipments($token, $requestBody, 'sandbox');
 
 // Response as PHP Array.
-$responseBody = $deleteShipmentsResponse['message'];
+$responseBody = $deleteCredentialsResponse['message'];
 
 error_log(print_r($responseBody, true));
-
 ```
