@@ -86,7 +86,7 @@ class SchedulePickupRequest
     {
         if (is_array($value)) {
             foreach ($value as $index => $item) {
-                if (empty($item)) {
+                if (empty($item) && !is_bool($item)) {
                     unset($value[$index]);
                     //  If numeric index, reindex and return.
                     if (is_numeric($index)) {
@@ -94,7 +94,7 @@ class SchedulePickupRequest
                     }
                 } elseif (is_array($item)) {
                     $value[$index] = $this->mapDeepAndStripEmptyValues($item, $callback);
-                    if (empty($value[$index])) {
+                    if (empty($value[$index]) && !is_bool($value[$index])) {
                         unset($value[$index]);
                         //  If numeric index, reindex and return.
                         if (is_numeric($index)) {
