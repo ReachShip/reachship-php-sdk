@@ -137,6 +137,6 @@ class CreateOrderRequest
      */
     public function getRequestJSON()
     {
-        return json_encode($this->getRequest(), JSON_PRETTY_PRINT);
+        return json_encode($this->getRequest());
     }
 }

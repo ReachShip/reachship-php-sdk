@@ -34,19 +34,11 @@ class ReachshipAPIClient
     public static function httpPostRequest($url, $headers = array(), $body = array())
     {
         try {
-            $curl = curl_init($url);
-            curl_setopt($curl, CURLOPT_POST, true);
-            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
-            curl_setopt($curl, CURLOPT_POSTFIELDS, $body);
-            curl_setopt($curl, CURLOPT_USERAGENT, 'WordPress/ReachShip');
-            $resultBody = curl_exec($curl);
-            $statusCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-            curl_close($curl);
+            $response = Requests::post( $url, $headers, $body );
 
             return array(
-                'status_code' => $statusCode,
-                'body'        => $resultBody,
+                'status_code' => $response->status_code,
+                'body'        => $response->body,
             );
         } catch (Exception $e) {
             return array(
@@ -63,21 +55,14 @@ class ReachshipAPIClient
      * @param  array  $headers Headers.
      * @return array
      */
-    public static function httpGetRequest($url, $headers = array())
+    public static function httpGetRequest($url, $headers = array(), $query_parameters = array() )
     {
         try {
-            $curl = curl_init($url);
-            curl_setopt($curl, CURLOPT_URL, $url);
-            curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
-            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($curl, CURLOPT_USERAGENT, 'WordPress/ReachShip');
-            $resultBody = curl_exec($curl);
-            $statusCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-            curl_close($curl);
+            $response = Requests::get( $url, $headers, $query_parameters );
 
             return array(
-                'status_code' => $statusCode,
-                'body'        => $resultBody,
+                'status_code' => $response->status_code,
+                'body'        => $response->body,
             );
         } catch (Exception $e) {
             return array(
@@ -95,7 +80,7 @@ class ReachshipAPIClient
      */
     public static function JSONEncode($data)
     {
-        return json_encode($data, JSON_PRETTY_PRINT);
+        return json_encode($data);
     }
 
     /**

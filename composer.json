@@ -23,5 +23,8 @@
     "minimum-stability":"alpha",
     "require-dev": {
         "squizlabs/php_codesniffer": "4.0.x-dev"
+    },
+    "require": {
+        "rmccue/requests": "^2.0"
     }
 }
