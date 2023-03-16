@@ -105,6 +105,7 @@ class ReachshipAPIClient
         return array(
             'Authorization: Bearer ' . $token,
             'Content-Type: application/json',
+            'User-Agent: WordPress/ReachShip'
         );
     }
 
