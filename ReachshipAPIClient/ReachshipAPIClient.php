@@ -103,9 +103,9 @@ class ReachshipAPIClient
     public static function getApiHeaders($token)
     {
         return array(
-            'Authorization: Bearer ' . $token,
-            'Content-Type: application/json',
-            'User-Agent: WordPress/ReachShip'
+            'Authorization' => 'Bearer ' . $token,
+            'Content-Type'  => 'application/json',
+            'User-Agent'    => 'WordPress/ReachShip',
         );
     }
 
