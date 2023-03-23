@@ -34,7 +34,7 @@ class ReachshipAPIClient
     public static function httpPostRequest($url, $headers = array(), $body = array())
     {
         try {
-            $response = Requests::post( $url, $headers, $body );
+            $response = Requests::post($url, $headers, $body);
 
             return array(
                 'status_code' => $response->status_code,
@@ -55,10 +55,10 @@ class ReachshipAPIClient
      * @param  array  $headers Headers.
      * @return array
      */
-    public static function httpGetRequest($url, $headers = array(), $query_parameters = array() )
+    public static function httpGetRequest($url, $headers = array(), $query_parameters = array())
     {
         try {
-            $response = Requests::get( $url, $headers, $query_parameters );
+            $response = Requests::get($url, $headers, $query_parameters);
 
             return array(
                 'status_code' => $response->status_code,
@@ -457,6 +457,13 @@ class ReachshipAPIClient
                 return array(
                     'status'  => 'success',
                     'message' => $decodedResponse,
+                );
+            }
+
+            if (403 === $response['status_code']) {
+                return array(
+                    'status'  => 'error',
+                    'message' => 'Request Denied!',
                 );
             }
 

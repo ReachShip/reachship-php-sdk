@@ -1,13 +1,13 @@
 <?php
 
-namespace Reachship\CreateLabelMypost;
-
 /**
  *
  * Create Label File.
  *
  * @package ReachShip Library
  */
+
+namespace Reachship\CreateLabelMypost;
 
 use Reachship\CreateLabelMypost;
 

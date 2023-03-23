@@ -1,13 +1,13 @@
 <?php
 
-namespace Reachship\CreateOrderAndPickupMypost;
-
 /**
  *
  * AdditionalOptions Object.
  *
  * @package ReachShip Library
  */
+
+namespace Reachship\CreateOrderAndPickupMypost;
 
 use Reachship\CreateOrderAndPickupMypost;
 

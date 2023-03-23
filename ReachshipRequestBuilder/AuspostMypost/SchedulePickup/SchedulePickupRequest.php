@@ -1,13 +1,13 @@
 <?php
 
-namespace Reachship\SchedulePickupMypost;
-
 /**
  *
  * Schedule Pickup Request Object.
  *
  * @package ReachShip Library
  */
+
+namespace Reachship\SchedulePickupMypost;
 
 use Reachship\SchedulePickupMypost;
 

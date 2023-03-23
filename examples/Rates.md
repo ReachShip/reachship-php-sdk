@@ -1,6 +1,7 @@
 # Rates Request Full Schema
+
 ```php
-<?php 
+<?php
 require_once dirname(__FILE__) . '/vendor/autoload.php';
 
 // Create Request Builder Instance.
@@ -39,7 +40,12 @@ $request->item()->setWeightUnit('LB');
 $request->items()->addItem($request->item()->getObject());
 
 // Specify Carriers.
-$request->ratesOptions()->setCarriers(["UPS", "USPS"]);
+$request->ratesOptions()->setCarriers(["UPS", "STAMPS_USPS", "DHL", "FEDEX", "AUSPOST_MYPOST"]);
+$request->ratesOptions()->ups()->setAccountName("ups-account-1");
+$request->ratesOptions()->stampsUsps()->setAccountName("stamps-usps-account-1");
+$request->ratesOptions()->dhlExpress()->setAccountName("dhl-express-account-1");
+$request->ratesOptions()->fedex()->setAccountName("fedex-account-1");
+$request->ratesOptions()->auspostMypost()->setAccountName("auspost-mypost-account-1");
 
 // Get JSON.
 $requestBody = $request->getRequestJSON();

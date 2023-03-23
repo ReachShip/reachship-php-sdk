@@ -1,13 +1,13 @@
 <?php
 
-namespace Reachship\CreateOrderAndPickupMypost;
-
 /**
  *
  * Create Order and Pickup File.
  *
  * @package ReachShip Library
  */
+
+namespace Reachship\CreateOrderAndPickupMypost;
 
 use Reachship\CreateOrderAndPickupMypost;
 
