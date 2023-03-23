@@ -29,6 +29,13 @@ class DeleteShipmentsRequest
     private $trackingIds;
 
     /**
+     * Variable accountName
+     *
+     * @var mixed
+     */
+    private $accountName;
+
+    /**
      * Function setCarrierName
      *
      * @param  mixed $carrierName City Locality.
@@ -71,6 +78,27 @@ class DeleteShipmentsRequest
     }
 
     /**
+     * Function setAccountName
+     *
+     * @param  mixed $accountName accountName.
+     * @return void
+     */
+    public function setAccountName($accountName)
+    {
+        $this->accountName = $accountName;
+    }
+
+    /**
+     * Function getAccountName
+     *
+     * @return string
+     */
+    public function getAccountName()
+    {
+        return $this->accountName;
+    }
+
+    /**
      * Function getRequest
      *
      * @return object
@@ -80,6 +108,7 @@ class DeleteShipmentsRequest
         $obj = array(
             'carrier_name' => $this->getCarrierName(),
             'tracking_ids' => $this->getTrackingIds(),
+            'account_name' => $this->getAccountName(),
         );
 
         $obj = $this->mapDeepAndStripEmptyValues($obj, 'array_filter');

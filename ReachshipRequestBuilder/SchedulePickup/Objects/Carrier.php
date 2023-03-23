@@ -22,6 +22,20 @@ class Carrier
     private $name = '';
 
     /**
+     * Variable serviceCode
+     *
+     * @var mixed
+     */
+    private $serviceCode = '';
+
+    /**
+     * Variable accountName
+     *
+     * @var mixed
+     */
+    private $accountName = '';
+
+    /**
      * Function getObject Get Object.
      *
      * @return object
@@ -30,6 +44,8 @@ class Carrier
     {
         $obj = array(
             'name' => $this->getName(),
+            'service_code' => $this->getServiceCode(),
+            'account_name' => $this->getAccountName()
         );
 
         return $obj;
@@ -54,5 +70,47 @@ class Carrier
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Function setServiceCode
+     *
+     * @param  mixed $serviceCode serviceCode.
+     * @return void
+     */
+    public function setServiceCode($serviceCode)
+    {
+        $this->serviceCode = $serviceCode;
+    }
+
+    /**
+     * Function getServiceCode
+     *
+     * @return string
+     */
+    public function getServiceCode()
+    {
+        return $this->serviceCode;
+    }
+
+    /**
+     * Function setAccountName
+     *
+     * @param  mixed $accountName accountName.
+     * @return void
+     */
+    public function setAccountName($accountName)
+    {
+        $this->accountName = $accountName;
+    }
+
+    /**
+     * Function getAccountName
+     *
+     * @return string
+     */
+    public function getAccountName()
+    {
+        return $this->accountName;
     }
 }

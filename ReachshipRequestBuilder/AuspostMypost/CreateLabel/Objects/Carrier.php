@@ -22,15 +22,46 @@ class Carrier
     private $name = '';
 
     /**
+     * Variable name
+     *
+     * @var mixed
+     */
+    private $accountName = '';
+
+    /**
      * Function getObject Get Object.
      *
      * @return object
      */
     public function getObject()
     {
-        return array(
+        $obj = array(
             'name' => $this->getName(),
+            'account_name' => $this->getAccountName()
         );
+
+        return $obj;
+    }
+
+    /**
+     * Function setAccountName
+     *
+     * @param  mixed $accountName accountName.
+     * @return void
+     */
+    public function setAccountName($accountName)
+    {
+        $this->accountName = $accountName;
+    }
+
+    /**
+     * Function getAccountName
+     *
+     * @return string
+     */
+    public function getAccountName()
+    {
+        return $this->accountName;
     }
 
     /**
