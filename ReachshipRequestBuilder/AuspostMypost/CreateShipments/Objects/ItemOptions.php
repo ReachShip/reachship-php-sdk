@@ -29,7 +29,7 @@ class ItemOptions
     public function getObject()
     {
         $obj = array(
-            'auspost_mypost' => $this->auspostMypost()->getObject()
+            'auspost_mypost' => $this->auspostMypost()->getObject(),
         );
 
         return $obj;

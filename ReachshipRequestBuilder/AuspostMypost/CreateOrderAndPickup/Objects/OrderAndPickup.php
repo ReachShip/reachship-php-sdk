@@ -36,8 +36,8 @@ class OrderAndPickup
     public function getObject()
     {
         $obj = array(
-            'order' => $this->order()->getObject(),
-            'pickup' => $this->pickup()->getObject()
+            'order'  => $this->order()->getObject(),
+            'pickup' => $this->pickup()->getObject(),
         );
 
         return $obj;

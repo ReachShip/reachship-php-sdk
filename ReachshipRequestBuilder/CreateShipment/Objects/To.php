@@ -21,6 +21,15 @@ class To
      */
     private $name = '';
 
+     /**
+      * Variable businessName
+      *
+      * @var mixed
+      */
+    private $businessName = '';
+
+
+
 
     /**
      * Variable phone
@@ -90,6 +99,7 @@ class To
     {
         $obj = array(
             'name'           => $this->getName(),
+            'business_name'  => $this->getBusinessName(),
             'phone'          => $this->getPhone(),
             'email'          => $this->getEmail(),
             'address_line_1' => $this->getAddressLine1(),
@@ -122,6 +132,28 @@ class To
     public function getName()
     {
         return $this->name;
+    }
+
+
+    /**
+     * Function setBusinessName
+     *
+     * @param  mixed $businessName BusinessName.
+     * @return void
+     */
+    public function setBusinessName($businessName)
+    {
+        $this->businessName = $businessName;
+    }
+
+    /**
+     * Function getBusinessName
+     *
+     * @return string
+     */
+    public function getBusinessName()
+    {
+        return $this->businessName;
     }
 
     /**

@@ -21,14 +21,12 @@ class Item
      */
     private $weight;
 
-
     /**
      * Variable weightUnit
      *
      * @var mixed
      */
     private $weightUnit;
-
 
     /**
      * Variable length
@@ -80,24 +78,24 @@ class Item
     public function getObject()
     {
         $obj = array(
-            'length' => array(
+            'length'       => array(
                 'value' => $this->getLength(),
-                'unit'  => !empty($this->getLength()) ? $this->getDimensionUnit() : "",
+                'unit'  => ! empty($this->getLength()) ? $this->getDimensionUnit() : '',
             ),
-            'width'  => array(
+            'width'        => array(
                 'value' => $this->getWidth(),
-                'unit'  => !empty($this->getWidth()) ? $this->getDimensionUnit() : "",
+                'unit'  => ! empty($this->getWidth()) ? $this->getDimensionUnit() : '',
             ),
-            'height' => array(
+            'height'       => array(
                 'value' => $this->getHeight(),
-                'unit'  => !empty($this->getHeight()) ? $this->getDimensionUnit() : "",
+                'unit'  => ! empty($this->getHeight()) ? $this->getDimensionUnit() : '',
             ),
-            'weight' => array(
+            'weight'       => array(
                 'value' => $this->getWeight(),
-                'unit'  => !empty($this->getWeight()) ? $this->getWeightUnit() : "",
+                'unit'  => ! empty($this->getWeight()) ? $this->getWeightUnit() : '',
             ),
-            'description' => $this->getDescription(),
-            'item_options' => $this->itemOptions()->getObject()
+            'description'  => $this->getDescription(),
+            'item_options' => $this->itemOptions()->getObject(),
         );
 
         return $obj;

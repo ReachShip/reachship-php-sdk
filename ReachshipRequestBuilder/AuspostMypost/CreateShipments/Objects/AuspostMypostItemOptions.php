@@ -86,13 +86,13 @@ class AuspostMypostItemOptions
     {
         $obj = array(
             'contains_dangerous_goods' => $this->getContainsDangerousGoods(),
-            'import_reference_number' => $this->getImportReferenceNumber(),
-            'product_id' => $this->getProductId(),
-            'signature_on_delivery' => $this->getSignatureOnDelivery(),
-            'commercial_value' => $this->getCommercialValue(),
-            'classification_type' => $this->getClassificationType(),
-            'description_of_other' => $this->getDescriptionOfOther(),
-            'item_contents' => $this->getItemContents()
+            'import_reference_number'  => $this->getImportReferenceNumber(),
+            'product_id'               => $this->getProductId(),
+            'signature_on_delivery'    => $this->getSignatureOnDelivery(),
+            'commercial_value'         => $this->getCommercialValue(),
+            'classification_type'      => $this->getClassificationType(),
+            'description_of_other'     => $this->getDescriptionOfOther(),
+            'item_contents'            => $this->getItemContents(),
         );
 
         return $obj;

@@ -109,18 +109,18 @@ class To
     public function getObject()
     {
         $obj = array(
-            'name'           => $this->getName(),
-            'phone'          => $this->getPhone(),
-            'email'          => $this->getEmail(),
-            'address_line_1' => $this->getAddressLine1(),
-            'address_line_2' => $this->getAddressLine2(),
-            'city_locality'  => $this->getCityLocality(),
-            'state_province' => $this->getStateProvince(),
-            'postal_code'    => $this->getPostalCode(),
-            'country_code'   => $this->getCountryCode(),
-            'business_name'  => $this->getBusinessName(),
-            'address_type'   => $this->getAddressType(),
-            'delivery_instructions' => $this->getDeliveryInstructions()
+            'name'                  => $this->getName(),
+            'phone'                 => $this->getPhone(),
+            'email'                 => $this->getEmail(),
+            'address_line_1'        => $this->getAddressLine1(),
+            'address_line_2'        => $this->getAddressLine2(),
+            'city_locality'         => $this->getCityLocality(),
+            'state_province'        => $this->getStateProvince(),
+            'postal_code'           => $this->getPostalCode(),
+            'country_code'          => $this->getCountryCode(),
+            'business_name'         => $this->getBusinessName(),
+            'address_type'          => $this->getAddressType(),
+            'delivery_instructions' => $this->getDeliveryInstructions(),
         );
 
         return $obj;

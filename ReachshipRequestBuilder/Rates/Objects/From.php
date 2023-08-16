@@ -58,7 +58,7 @@ class From
             'country_code'   => $this->getCountryCode(),
         );
 
-    //    $obj = array_filter((array) $obj);
+        // $obj = array_filter((array) $obj);
 
         return $obj;
     }

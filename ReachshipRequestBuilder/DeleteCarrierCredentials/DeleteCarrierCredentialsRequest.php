@@ -29,6 +29,13 @@ class DeleteCarrierCredentialsRequest
     private $accountName;
 
     /**
+     * Variable alternativePrimaryAccountName
+     *
+     * @var mixed
+     */
+    private $alternativePrimaryAccountName;
+
+    /**
      * Function setCarrierName
      *
      * @param  mixed $carrierName City Locality.
@@ -71,6 +78,27 @@ class DeleteCarrierCredentialsRequest
     }
 
     /**
+     * Function setAlternativePrimaryAccountName
+     *
+     * @param  mixed $alternativePrimaryAccountName Account Name.
+     * @return void
+     */
+    public function setAlternativePrimaryAccountName($alternativePrimaryAccountName)
+    {
+        $this->alternativePrimaryAccountName = $alternativePrimaryAccountName;
+    }
+
+    /**
+     * Function getAlternativePrimaryAccountName
+     *
+     * @return string
+     */
+    public function getAlternativePrimaryAccountName()
+    {
+        return $this->alternativePrimaryAccountName;
+    }
+
+    /**
      * Function getRequest
      *
      * @return object
@@ -78,8 +106,9 @@ class DeleteCarrierCredentialsRequest
     public function getRequest()
     {
         $obj = array(
-            'carrier'      => $this->getCarrierName(),
-            'account_name' => $this->getAccountName(),
+            'carrier'                          => $this->getCarrierName(),
+            'account_name'                     => $this->getAccountName(),
+            'alternative_primary_account_name' => $this->getAlternativePrimaryAccountName(),
         );
 
         $obj = $this->mapDeepAndStripEmptyValues($obj, 'array_filter');
@@ -98,17 +127,17 @@ class DeleteCarrierCredentialsRequest
     {
         if (is_array($value)) {
             foreach ($value as $index => $item) {
-                if (empty($item) && !is_bool($item)) {
-                    unset($value[$index]);
-                    //  If numeric index, reindex and return.
+                if (empty($item) && ! is_bool($item)) {
+                    unset($value[ $index ]);
+                    // If numeric index, reindex and return.
                     if (is_numeric($index)) {
                         return array_values($value);
                     }
                 } elseif (is_array($item)) {
-                    $value[$index] = $this->mapDeepAndStripEmptyValues($item, $callback);
-                    if (empty($value[$index]) && !is_bool($value[$index])) {
-                        unset($value[$index]);
-                        //  If numeric index, reindex and return.
+                    $value[ $index ] = $this->mapDeepAndStripEmptyValues($item, $callback);
+                    if (empty($value[ $index ]) && ! is_bool($value[ $index ])) {
+                        unset($value[ $index ]);
+                        // If numeric index, reindex and return.
                         if (is_numeric($index)) {
                             return array_values($value);
                         }

@@ -57,6 +57,13 @@ class SchedulePickupRequest
     private $trackingIds;
 
     /**
+     * Variable destinationCountryCode
+     *
+     * @var mixed
+     */
+    private $destinationCountryCode;
+
+    /**
      * Function carrier Carrier.
      *
      * @return object
@@ -147,6 +154,28 @@ class SchedulePickupRequest
         $this->trackingIds = $trackingIds;
     }
 
+
+     /**
+      * Function getDestinationCountryCode .
+      *
+      * @return object
+      */
+    public function getDestinationCountryCode()
+    {
+        return $this->destinationCountryCode;
+    }
+
+     /**
+      * Function setDestinationCountryCode
+      *
+      * @param  mixed $destinationCountryCode destinationCountryCode.
+      * @return void
+      */
+    public function setDestinationCountryCode($destinationCountryCode)
+    {
+        $this->destinationCountryCode = $destinationCountryCode;
+    }
+
     /**
      * Function clear Set Keys as NULL.
      *
@@ -154,12 +183,12 @@ class SchedulePickupRequest
      */
     public function clear()
     {
-        $this->carrierObject = null;
-        $this->shipperObject = null;
-        $this->itemsObject = null;
-        $this->itemObject = null;
+        $this->shipperObject      = null;
+        $this->carrierObject      = null;
+        $this->itemsObject        = null;
+        $this->itemObject         = null;
         $this->pickupWindowObject = null;
-        $this->trackingIds = null;
+        $this->trackingIds        = null;
     }
 
     /**
@@ -170,11 +199,12 @@ class SchedulePickupRequest
     public function getRequest()
     {
         $obj = array(
-            'carrier'  => $this->carrier()->getObject(),
-            'shipper'  => $this->shipper()->getObject(),
-            'packages' => $this->items()->getItems(),
-            'pickup_window' => $this->pickupWindow()->getObject(),
-            'tracking_ids' => $this->getTrackingIds()
+            'shipper'                  => $this->shipper()->getObject(),
+            'carrier'                  => $this->carrier()->getObject(),
+            'pickup_window'            => $this->pickupWindow()->getObject(),
+            'packages'                 => $this->items()->getItems(),
+            'tracking_ids'             => $this->getTrackingIds(),
+            'destination_country_code' => $this->getDestinationCountryCode(),
         );
 
         $obj = $this->mapDeepAndStripEmptyValues($obj, 'array_filter');
@@ -193,17 +223,17 @@ class SchedulePickupRequest
     {
         if (is_array($value)) {
             foreach ($value as $index => $item) {
-                if (empty($item) && !is_bool($item)) {
-                    unset($value[$index]);
-                    //  If numeric index, reindex and return.
+                if (empty($item) && ! is_bool($item)) {
+                    unset($value[ $index ]);
+                    // If numeric index, reindex and return.
                     if (is_numeric($index)) {
                         return array_values($value);
                     }
                 } elseif (is_array($item)) {
-                    $value[$index] = $this->mapDeepAndStripEmptyValues($item, $callback);
-                    if (empty($value[$index]) && !is_bool($value[$index])) {
-                        unset($value[$index]);
-                        //  If numeric index, reindex and return.
+                    $value[ $index ] = $this->mapDeepAndStripEmptyValues($item, $callback);
+                    if (empty($value[ $index ]) && ! is_bool($value[ $index ])) {
+                        unset($value[ $index ]);
+                        // If numeric index, reindex and return.
                         if (is_numeric($index)) {
                             return array_values($value);
                         }

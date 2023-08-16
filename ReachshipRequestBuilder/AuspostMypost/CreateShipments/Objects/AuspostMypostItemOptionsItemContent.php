@@ -64,12 +64,12 @@ class AuspostMypostItemOptionsItemContent
     public function getObject()
     {
         $obj = array(
-            'tariff_code' => $this->getTariffCode(),
+            'tariff_code'               => $this->getTariffCode(),
             'export_declaration_number' => $this->getExportDeclarationNumber(),
-            'country_of_origin' => $this->getCountryOfOrigin(),
-            'cover_amount' => $this->getCoverAmount(),
-            'weight' => $this->getWeight(),
-            'description' => $this->getDescription(),
+            'country_of_origin'         => $this->getCountryOfOrigin(),
+            'cover_amount'              => $this->getCoverAmount(),
+            'weight'                    => $this->getWeight(),
+            'description'               => $this->getDescription(),
         );
 
         return $obj;

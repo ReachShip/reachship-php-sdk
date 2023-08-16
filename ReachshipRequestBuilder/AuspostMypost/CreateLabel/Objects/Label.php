@@ -44,8 +44,8 @@ class Label
     {
         return array(
             'include_australiapost_branding' => $this->getIncludeAustraliapostBranding(),
-            'layouts' => $this->layouts()->getObject(),
-            'shipment_ids' => $this->getShipmentIds()
+            'layouts'                        => $this->layouts()->getObject(),
+            'shipment_ids'                   => $this->getShipmentIds(),
         );
     }
 

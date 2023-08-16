@@ -68,19 +68,19 @@ class Item
         $obj = array(
             'length' => array(
                 'value' => $this->getLength(),
-                'unit'  => !empty($this->getLength()) ? $this->getDimensionUnit() : "",
+                'unit'  => ! empty($this->getLength()) ? $this->getDimensionUnit() : '',
             ),
             'width'  => array(
                 'value' => $this->getWidth(),
-                'unit'  => !empty($this->getWidth()) ? $this->getDimensionUnit() : "",
+                'unit'  => ! empty($this->getWidth()) ? $this->getDimensionUnit() : '',
             ),
             'height' => array(
                 'value' => $this->getHeight(),
-                'unit'  => !empty($this->getHeight()) ? $this->getDimensionUnit() : "",
+                'unit'  => ! empty($this->getHeight()) ? $this->getDimensionUnit() : '',
             ),
             'weight' => array(
                 'value' => $this->getWeight(),
-                'unit'  => !empty($this->getWeight()) ? $this->getWeightUnit() : "",
+                'unit'  => ! empty($this->getWeight()) ? $this->getWeightUnit() : '',
             ),
         );
 
@@ -211,5 +211,20 @@ class Item
     public function getWeightUnit()
     {
         return $this->weightUnit;
+    }
+
+    /**
+     * Function clear Set Keys as NULL.
+     *
+     * @return object
+     */
+    public function clear()
+    {
+        $this->length        = null;
+        $this->width         = null;
+        $this->height        = null;
+        $this->dimensionUnit = null;
+        $this->weight        = null;
+        $this->weightUnit    = null;
     }
 }

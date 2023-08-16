@@ -33,7 +33,7 @@ class AuspostMypostShipmentOptions
      *
      * @var mixed
      */
-    private $senderReferences = [];
+    private $senderReferences = array();
 
     /**
      * Function getObject Get Object.
@@ -43,9 +43,9 @@ class AuspostMypostShipmentOptions
     public function getObject()
     {
         $obj = array(
-            'shipment_reference' => $this->getShipmentReference(),
+            'shipment_reference'     => $this->getShipmentReference(),
             'email_tracking_enabled' => $this->getEmailTrackingEnabled(),
-            'sender_references' => $this->getSenderReferences()
+            'sender_references'      => $this->getSenderReferences(),
         );
 
         return $obj;

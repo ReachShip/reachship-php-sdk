@@ -36,8 +36,8 @@ class Carrier
     public function getObject()
     {
         $obj = array(
-            'name' => $this->getName(),
-            'account_name' => $this->getAccountName()
+            'name'         => $this->getName(),
+            'account_name' => $this->getAccountName(),
         );
 
         return $obj;

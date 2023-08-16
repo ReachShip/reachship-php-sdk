@@ -108,7 +108,7 @@ class TrackShipmentRequest
         $obj = array(
             'carrier_name'    => $this->getCarrierName(),
             'tracking_number' => $this->getTrackingNumber(),
-            'account_name'    => $this->getAccountName()
+            'account_name'    => $this->getAccountName(),
         );
 
         $obj = $this->mapDeepAndStripEmptyValues($obj, 'array_filter');
@@ -127,17 +127,17 @@ class TrackShipmentRequest
     {
         if (is_array($value)) {
             foreach ($value as $index => $item) {
-                if (empty($item) && !is_bool($item)) {
-                    unset($value[$index]);
-                    //  If numeric index, reindex and return.
+                if (empty($item) && ! is_bool($item)) {
+                    unset($value[ $index ]);
+                    // If numeric index, reindex and return.
                     if (is_numeric($index)) {
                         return array_values($value);
                     }
                 } elseif (is_array($item)) {
-                    $value[$index] = $this->mapDeepAndStripEmptyValues($item, $callback);
-                    if (empty($value[$index]) && !is_bool($value[$index])) {
-                        unset($value[$index]);
-                        //  If numeric index, reindex and return.
+                    $value[ $index ] = $this->mapDeepAndStripEmptyValues($item, $callback);
+                    if (empty($value[ $index ]) && ! is_bool($value[ $index ])) {
+                        unset($value[ $index ]);
+                        // If numeric index, reindex and return.
                         if (is_numeric($index)) {
                             return array_values($value);
                         }

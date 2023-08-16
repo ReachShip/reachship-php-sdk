@@ -64,12 +64,12 @@ class RatesOptions
     public function getObject()
     {
         return array(
-            'carriers' => $this->carriers,
-            'dhl_express' => $this->dhlExpress()->getObject(),
+            'carriers'       => $this->carriers,
+            'dhl_express'    => $this->dhlExpress()->getObject(),
             'auspost_mypost' => $this->auspostMypost()->getObject(),
-            'ups' => $this->ups()->getObject(),
-            'fedex' => $this->fedex()->getObject(),
-            'stamps_usps' => $this->stampsUsps()->getObject(),
+            'ups'            => $this->ups()->getObject(),
+            'fedex'          => $this->fedex()->getObject(),
+            'stamps_usps'    => $this->stampsUsps()->getObject(),
         );
     }
 

@@ -128,10 +128,10 @@ class RatesRequest
      */
     public function clear()
     {
-        $this->shipFromObject = null;
-        $this->shipToObject = null;
-        $this->itemsObject = null;
-        $this->itemObject = null;
+        $this->shipFromObject     = null;
+        $this->shipToObject       = null;
+        $this->itemsObject        = null;
+        $this->itemObject         = null;
         $this->ratesOptionsObject = null;
     }
 
@@ -168,17 +168,17 @@ class RatesRequest
     {
         if (is_array($value)) {
             foreach ($value as $index => $item) {
-                if (empty($item) && !is_bool($item)) {
-                    unset($value[$index]);
-                    //  If numeric index, reindex and return.
+                if (empty($item) && ! is_bool($item)) {
+                    unset($value[ $index ]);
+                    // If numeric index, reindex and return.
                     if (is_numeric($index)) {
                         return array_values($value);
                     }
                 } elseif (is_array($item)) {
-                    $value[$index] = $this->mapDeepAndStripEmptyValues($item, $callback);
-                    if (empty($value[$index]) && !is_bool($value[$index])) {
-                        unset($value[$index]);
-                        //  If numeric index, reindex and return.
+                    $value[ $index ] = $this->mapDeepAndStripEmptyValues($item, $callback);
+                    if (empty($value[ $index ]) && ! is_bool($value[ $index ])) {
+                        unset($value[ $index ]);
+                        // If numeric index, reindex and return.
                         if (is_numeric($index)) {
                             return array_values($value);
                         }

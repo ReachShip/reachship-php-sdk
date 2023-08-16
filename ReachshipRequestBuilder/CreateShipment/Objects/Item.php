@@ -59,6 +59,13 @@ class Item
     private $dimensionUnit;
 
     /**
+     * Variable itemOptionsObject
+     *
+     * @var mixed
+     */
+    private $itemOptionsObject;
+
+    /**
      * Function getObject Get Object.
      *
      * @return object
@@ -66,22 +73,23 @@ class Item
     public function getObject()
     {
         $obj = array(
-            'length' => array(
+            'length'       => array(
                 'value' => $this->getLength(),
                 'unit'  => $this->getDimensionUnit(),
             ),
-            'width'  => array(
+            'width'        => array(
                 'value' => $this->getWidth(),
                 'unit'  => $this->getDimensionUnit(),
             ),
-            'height' => array(
+            'height'       => array(
                 'value' => $this->getHeight(),
                 'unit'  => $this->getDimensionUnit(),
             ),
-            'weight' => array(
+            'weight'       => array(
                 'value' => $this->getWeight(),
                 'unit'  => $this->getWeightUnit(),
             ),
+            'item_options' => $this->itemOptions()->getObject(),
         );
 
         return $obj;
@@ -211,5 +219,19 @@ class Item
     public function getWeightUnit()
     {
         return $this->weightUnit;
+    }
+
+    /**
+     * Function itemOptions
+     *
+     * @return object
+     */
+    public function itemOptions()
+    {
+        if (empty($this->itemOptionsObject)) {
+            require_once dirname(__FILE__) . '/ItemOptions.php';
+            $this->itemOptionsObject = new ItemOptions();
+        }
+        return $this->itemOptionsObject;
     }
 }

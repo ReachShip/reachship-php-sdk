@@ -19,14 +19,14 @@ class Layouts
      *
      * @var mixed
      */
-    private $expressPostLayout = "";
+    private $expressPostLayout = '';
 
     /**
      * Variable parcelPostLayout
      *
      * @var mixed
      */
-    private $parcelPostLayout = "";
+    private $parcelPostLayout = '';
 
     /**
      * Function getObject Get Object.
@@ -37,7 +37,7 @@ class Layouts
     {
         return array(
             'express_post' => $this->getExpressPostLayout(),
-            'parcel_post' => $this->getParcelPostLayout(),
+            'parcel_post'  => $this->getParcelPostLayout(),
         );
     }
 

@@ -43,7 +43,7 @@ class CreateShipmentRequest
     }
 
     /**
-     * Function shipment shipment.
+     * Function shipment Shipment.
      *
      * @return object
      */
@@ -64,12 +64,13 @@ class CreateShipmentRequest
     public function getRequest()
     {
         $obj = array(
-            'carrier' => $this->carrier()->getObject(),
+            'carrier'  => $this->carrier()->getObject(),
             'shipment' => array(
-                'ship_from' => $this->shipment()->shipFrom()->getObject(),
-                'ship_to'   => $this->shipment()->shipTo()->getObject(),
-                'packages'  => $this->shipment()->items()->getItems(),
-                'ship_date' => $this->shipment()->getShipDate()
+                'ship_from'        => $this->shipment()->shipFrom()->getObject(),
+                'ship_to'          => $this->shipment()->shipTo()->getObject(),
+                'packages'         => $this->shipment()->items()->getItems(),
+                'ship_date'        => $this->shipment()->getShipDate(),
+                'shipment_options' => $this->shipment()->shipmentOptions()->getObject(),
             ),
         );
 
@@ -89,17 +90,17 @@ class CreateShipmentRequest
     {
         if (is_array($value)) {
             foreach ($value as $index => $item) {
-                if (empty($item) && !is_bool($item)) {
-                    unset($value[$index]);
-                    //  If numeric index, reindex and return.
+                if (empty($item) && ! is_bool($item)) {
+                    unset($value[ $index ]);
+                    // If numeric index, reindex and return.
                     if (is_numeric($index)) {
                         return array_values($value);
                     }
                 } elseif (is_array($item)) {
-                    $value[$index] = $this->mapDeepAndStripEmptyValues($item, $callback);
-                    if (empty($value[$index]) && !is_bool($value[$index])) {
-                        unset($value[$index]);
-                        //  If numeric index, reindex and return.
+                    $value[ $index ] = $this->mapDeepAndStripEmptyValues($item, $callback);
+                    if (empty($value[ $index ]) && ! is_bool($value[ $index ])) {
+                        unset($value[ $index ]);
+                        // If numeric index, reindex and return.
                         if (is_numeric($index)) {
                             return array_values($value);
                         }

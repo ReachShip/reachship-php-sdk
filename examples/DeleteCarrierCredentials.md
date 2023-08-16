@@ -11,6 +11,7 @@ $request = $builder->deleteCarrierCredentials();
 // Request.
 $request->setCarrierName('DHL');
 $request->setAccountName('Account 1');
+$request->setAlternativePrimaryAccountName('Account 2');
 
 // Get JSON.
 $requestBody = $request->getRequestJSON();

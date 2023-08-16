@@ -51,17 +51,25 @@ class Shipment
     private $shipDate;
 
     /**
+     * Variable shipmentOptionsObject
+     *
+     * @var mixed
+     */
+    private $shipmentOptionsObject;
+
+    /**
      * Function clear Set Keys as NULL.
      *
      * @return object
      */
     public function clear()
     {
-        $this->shipFromObject = null;
-        $this->shipToObject = null;
-        $this->itemsObject = null;
-        $this->itemObject = null;
-        $this->shipDate = null;
+        $this->shipFromObject        = null;
+        $this->shipToObject          = null;
+        $this->itemsObject           = null;
+        $this->itemObject            = null;
+        $this->shipDate              = null;
+        $this->shipmentOptionsObject = null;
     }
 
     /**
@@ -121,6 +129,20 @@ class Shipment
     }
 
     /**
+     * Function shipmentOptions ShipmentOptions.
+     *
+     * @return object
+     */
+    public function shipmentOptions()
+    {
+        if (empty($this->shipmentOptionsObject)) {
+            require_once dirname(__FILE__) . '/ShipmentOptions.php';
+            $this->shipmentOptionsObject = new ShipmentOptions();
+        }
+        return $this->shipmentOptionsObject;
+    }
+
+    /**
      * Function setShipDate
      *
      * @param  mixed $shipDate shipDate.
@@ -130,7 +152,6 @@ class Shipment
     {
         $this->shipDate = $shipDate;
     }
-
     /**
      * Function getShipDate
      *

@@ -120,9 +120,9 @@ class Shipment
     public function clear()
     {
         $this->shipFromObject = null;
-        $this->shipToObject = null;
-        $this->itemsObject = null;
-        $this->itemObject = null;
+        $this->shipToObject   = null;
+        $this->itemsObject    = null;
+        $this->itemObject     = null;
     }
 
     /**
@@ -133,10 +133,10 @@ class Shipment
     public function getObject()
     {
         $obj = array(
-            'ship_from' => $this->shipFrom()->getObject(),
-            'ship_to'   => $this->shipTo()->getObject(),
-            'items'  => $this->items()->getItems(),
-            'shipment_options' => $this->shipmentOptions()->getObject()
+            'ship_from'        => $this->shipFrom()->getObject(),
+            'ship_to'          => $this->shipTo()->getObject(),
+            'items'            => $this->items()->getItems(),
+            'shipment_options' => $this->shipmentOptions()->getObject(),
         );
 
         return $obj;

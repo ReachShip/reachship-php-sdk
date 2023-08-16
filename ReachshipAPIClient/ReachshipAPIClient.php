@@ -7,12 +7,10 @@
  * @package ReachShip Library
  */
 
-/**
- * ReachshipAPIClient Class.
- */
+use WpOrg\Requests\Requests;
 
 /**
- * ReachshipAPIClient
+ * ReachshipAPIClient Class.
  */
 class ReachshipAPIClient
 {
@@ -204,11 +202,11 @@ class ReachshipAPIClient
             $data = array();
 
             switch ($carrier) {
-                case 'DHL':
+                case 'DHL_EXPRESS':
                     $data = array(
                         'carrier'         => $carrier,
                         'account_name'    => $accountName,
-                        'dhl_credentials' => json_decode($credentialsObject),
+                        'dhl_express_credentials' => json_decode($credentialsObject),
                     );
                     break;
                 case 'FEDEX':
@@ -289,11 +287,11 @@ class ReachshipAPIClient
             $data = array();
 
             switch ($carrier) {
-                case 'DHL':
+                case 'DHL_EXPRESS':
                     $data = array(
                         'carrier'         => $carrier,
                         'account_name'    => $accountName,
-                        'dhl_credentials' => json_decode($credentialsObject),
+                        'dhl_express_credentials' => json_decode($credentialsObject),
                     );
                     break;
                 case 'FEDEX':

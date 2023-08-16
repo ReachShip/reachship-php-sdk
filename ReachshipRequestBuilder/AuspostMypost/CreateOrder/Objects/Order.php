@@ -37,7 +37,7 @@ class Order
     {
         $obj = array(
             'order_reference' => $this->getOrderReference(),
-            'shipment_ids' => $this->getShipmentIds()
+            'shipment_ids'    => $this->getShipmentIds(),
         );
 
         return $obj;

@@ -29,7 +29,7 @@ class Pickup
     public function getObject()
     {
         $obj = array(
-            'pickup_ids' => $this->getPickupIds()
+            'pickup_ids' => $this->getPickupIds(),
         );
 
         return $obj;

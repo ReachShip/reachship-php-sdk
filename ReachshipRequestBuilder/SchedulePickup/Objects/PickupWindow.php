@@ -43,9 +43,9 @@ class PickupWindow
     public function getObject()
     {
         $obj = array(
-            'date' => $this->getDate(),
+            'date'       => $this->getDate(),
             'ready_time' => $this->getReadyTime(),
-            'close_time' => $this->getCloseTime()
+            'close_time' => $this->getCloseTime(),
         );
 
         return $obj;
